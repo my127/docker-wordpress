@@ -34,6 +34,7 @@ RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
       gd \
       intl \
       mcrypt \
+      mysqli \
       opcache \
       pdo_mysql \
       soap \
