@@ -1,92 +1,76 @@
 version: '3'
 services:
 
-  # PHP 5.6
-
-  # php56-fpm-alpine-base:
-  #   build:
-  #     context: ./5.6/alpine/fpm
-  #     dockerfile: base.Dockerfile
-  #   image: my127/wordpress:5.6-fpm-alpine
-
-  # php56-fpm-alpine-console:
-  #   build:
-  #     context: ./5.6/alpine/fpm
-  #     dockerfile: console.Dockerfile
-  #   image: my127/wordpress:5.6-fpm-alpine-console
-  #   depends_on:
-  #     - php56-fpm-alpine-base
+  # Base Images
 
   php56-fpm-stretch-base:
     build:
-      context: ./5.6/stretch/fpm
+      context: ./
       dockerfile: base.Dockerfile
     image: my127/wordpress:5.6-fpm-stretch
 
+  php70-fpm-stretch-base:
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+    image: my127/wordpress:7.0-fpm-stretch
+  
+  php71-fpm-stretch-base:
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+    image: my127/wordpress:7.1-fpm-stretch
+
+  php72-fpm-stretch-base:
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+    image: my127/wordpress:7.2-fpm-stretch
+
+  php73-fpm-stretch-base:
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+    image: my127/wordpress:7.3-fpm-stretch
+
+  # Console Images
+
   php56-fpm-stretch-console:
     build:
-      context: ./5.6/stretch/fpm
+      context: ./
       dockerfile: console.Dockerfile
     image: my127/wordpress:5.6-fpm-stretch-console
     depends_on:
       - php56-fpm-stretch-base
 
-  # PHP 7.1
-
-  # php71-fpm-alpine-base:
-  #   build:
-  #     context: ./7.1/alpine/fpm
-  #     dockerfile: base.Dockerfile
-  #   image: my127/wordpress:7.1-fpm-alpine
-
-  # php71-fpm-alpine-console:
-  #   build:
-  #     context: ./7.1/alpine/fpm
-  #     dockerfile: console.Dockerfile
-  #   image: my127/wordpress:7.1-fpm-alpine-console
-  #   depends_on:
-  #     - php71-fpm-alpine-base
-
-  php71-fpm-stretch-base:
+  php70-fpm-stretch-console:
     build:
-      context: ./7.1/stretch/fpm
-      dockerfile: base.Dockerfile
-    image: my127/wordpress:7.1-fpm-stretch
+      context: ./
+      dockerfile: console.Dockerfile
+    image: my127/wordpress:7.0-fpm-stretch-console
+    depends_on:
+      - php70-fpm-stretch-base
 
   php71-fpm-stretch-console:
     build:
-      context: ./7.1/stretch/fpm
+      context: ./
       dockerfile: console.Dockerfile
     image: my127/wordpress:7.1-fpm-stretch-console
     depends_on:
       - php71-fpm-stretch-base
 
-  # PHP 7.2
-
-  # php72-fpm-alpine-base:
-  #   build:
-  #     context: ./7.2/alpine/fpm
-  #     dockerfile: base.Dockerfile
-  #   image: my127/wordpress:7.2-fpm-alpine
-
-  # php72-fpm-alpine-console:
-  #   build:
-  #     context: ./7.2/alpine/fpm
-  #     dockerfile: console.Dockerfile
-  #   image: my127/wordpress:7.2-fpm-alpine-console
-  #   depends_on:
-  #     - php72-fpm-alpine-base
-
-  php72-fpm-stretch-base:
-    build:
-      context: ./7.2/stretch/fpm
-      dockerfile: base.Dockerfile
-    image: my127/wordpress:7.2-fpm-stretch
-
   php72-fpm-stretch-console:
     build:
-      context: ./7.2/stretch/fpm
+      context: ./
       dockerfile: console.Dockerfile
     image: my127/wordpress:7.2-fpm-stretch-console
     depends_on:
       - php72-fpm-stretch-base
+
+  php73-fpm-stretch-console:
+    build:
+      context: ./
+      dockerfile: console.Dockerfile
+    image: my127/wordpress:7.3-fpm-stretch-console
+    depends_on:
+      - php73-fpm-stretch-base
