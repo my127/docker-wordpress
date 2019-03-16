@@ -4,73 +4,83 @@ services:
   # Base Images
 
   php56-fpm-stretch-base:
+    image: my127/wordpress:5.6-fpm-stretch
     build:
       context: ./
       dockerfile: base.Dockerfile
-    image: my127/wordpress:5.6-fpm-stretch
+      args:
+        VERSION: 5.6
 
   php70-fpm-stretch-base:
-    build:
-      context: ./
-      dockerfile: base.Dockerfile
     image: my127/wordpress:7.0-fpm-stretch
-  
-  php71-fpm-stretch-base:
     build:
       context: ./
       dockerfile: base.Dockerfile
+      args:
+        VERSION: 7.0
+
+  php71-fpm-stretch-base:
     image: my127/wordpress:7.1-fpm-stretch
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+      args:
+        VERSION: 7.1
 
   php72-fpm-stretch-base:
+    image: my127/wordpress:7.2-fpm-stretch
     build:
       context: ./
       dockerfile: base.Dockerfile
-    image: my127/wordpress:7.2-fpm-stretch
+      args:
+        VERSION: 7.2
 
   php73-fpm-stretch-base:
+    image: my127/wordpress:7.3-fpm-stretch
     build:
       context: ./
       dockerfile: base.Dockerfile
-    image: my127/wordpress:7.3-fpm-stretch
+      args:
+        VERSION: 7.3
 
   # Console Images
 
   php56-fpm-stretch-console:
+    image: my127/wordpress:5.6-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/wordpress:5.6-fpm-stretch-console
-    depends_on:
-      - php56-fpm-stretch-base
+      args:
+        VERSION: 5.6
 
   php70-fpm-stretch-console:
+    image: my127/wordpress:7.0-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/wordpress:7.0-fpm-stretch-console
-    depends_on:
-      - php70-fpm-stretch-base
+      args:
+        VERSION: 7.0
 
   php71-fpm-stretch-console:
+    image: my127/wordpress:7.1-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/wordpress:7.1-fpm-stretch-console
-    depends_on:
-      - php71-fpm-stretch-base
+      args:
+        VERSION: 7.1
 
   php72-fpm-stretch-console:
+    image: my127/wordpress:7.2-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/wordpress:7.2-fpm-stretch-console
-    depends_on:
-      - php72-fpm-stretch-base
+      args:
+        VERSION: 7.2
 
   php73-fpm-stretch-console:
+    image: my127/wordpress:7.3-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/wordpress:7.3-fpm-stretch-console
-    depends_on:
-      - php73-fpm-stretch-base
+      args:
+        VERSION: 7.3
