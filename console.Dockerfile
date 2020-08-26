@@ -1,7 +1,8 @@
 ARG VERSION=7.3
 FROM my127/php:${VERSION}-fpm-stretch-console
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y --no-install-recommends install \
+RUN apt-get update -qq \
+ && DEBIAN_FRONTEND=noninteractive apt-get -qq -y --no-install-recommends install \
   # package dependencies \
    less \
   # clean \
